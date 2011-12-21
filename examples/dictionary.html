@@ -29,22 +29,39 @@
         display: inline-block; }
       div.dswatch { width: 75px; height: 100%; margin-right: 3px;
         display: inline-block; }
-      td.name { font-style: bold; }
+      table.thesaurus { width: 315px; }
+      td.name { font-style: bold; width: 155px; }
       td.hex, div.hex { font-style: italic; color: #ccc; }
       td.hex { padding-left: 29px; }
       td.score { color: #ccc; padding-left: 10px; }
       td.name a { color: black; text-decoration: none; }
       td.name a:hover { color: red; }
       h3 { padding: 0; margin: 4px 0px 4px 0px; font-size: 17px; }
+      .block { margin-right: 20px; display: inline-block; }
+      .ctrl { margin-top: 4px; display: none; }
+      .ctrl, .ctrl a { color: #bbb; font-size: 12px; text-decoration: none; }
+      .ctrl a:hover { color: #bbb; }
     </style>
+    <script type="text/javascript">
+      function flip(link) {
+        var b = d3.select(".ctrl a").text() == "Vertical";
+        d3.selectAll('.container').classed('block', b);
+        d3.select(".ctrl a").text(b ? "Horizontal" : "Vertical");
+      }
+    </script>
   </head>
   <body>
-    <div>
+    <div class="container">
       <div>
         <div class="label">Color</div>
 	    <input id="input" type="text" />
 	  </div>
-      <div id="output"></div>
+      <div id="dict" class="output"></div>
+    </div>
+    <div id="sim" class="output container"></div>
+    <div id="dis" class="output container"></div>
+    <div class="ctrl">
+      Orientation: <a href="javascript:flip(this);">Vertical</a>
     </div>
   </body>
 </html>
