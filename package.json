@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/jheer/c3.git"
+    "url": "http://github.com/StanfordHCI/c3.git"
   },
   "main": "c3.js",
   "dependencies": {
